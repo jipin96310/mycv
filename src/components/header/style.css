@@ -1,0 +1,41 @@
+.header {   
+        display: flex;  
+        justify-content: center;  
+        align-items: center;  
+        width: 100%;
+        background-color: #87CEFA;
+        height: 100vh; 
+        position: absolute;
+        z-index: 1000;
+   
+ 
+}
+.header h1 {   font-size: 30px;   color: red; 
+}
+.header-disappear{
+
+        height:  0px;
+}
+.header-text {   position: relative; 
+                 width: 30em;   
+                 height: 20em;
+                
+            
+}
+
+.down-panel{
+    position: absolute;
+    bottom: 0;   
+}
+.up-panel{
+    position: absolute;
+    top:0;
+}
+@-webkit-keyframes slide-in {
+
+ 100% { left: 0 }
+}
+@keyframes slide-in {
+
+ 100% { left: 0 }
+}

@@ -1,0 +1,28 @@
+.home {   
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    width: 100%;
+    background-color: salmon;
+    height: 100vh; 
+    position: absolute;
+    z-index: 1500;
+
+
+}
+
+.home-text {   position: relative; 
+             width: 30em;   
+             height: 20em;
+            
+        
+}
+
+.down-panel{
+position: absolute;
+bottom: 0;   
+}
+.up-panel{
+position: absolute;
+top:0;
+}

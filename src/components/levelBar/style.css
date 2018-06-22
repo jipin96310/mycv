@@ -1,0 +1,57 @@
+
+
+.levelBar{
+    height: 20px;
+    line-height: 35px;
+    background: #809495;
+    box-shadow: none;
+    padding: 6px;
+    margin-top:20px;
+    overflow: visible;
+    border-radius:10px;
+}
+.levelBar:after{
+    content: "";
+    display: inline-block;
+    
+    margin-top:8px;
+}
+.levelBar-title{
+    color:#333;
+    font-size:15px;
+    margin:5px 0;
+    font-weight: bold;
+}
+.levelBar .levelBar-bar{
+    position: relative;
+    border-radius: 10px 0 0 10px;
+    animation: animate-positive 2s;
+ 
+}
+.levelBar .levelBar-bar span{
+    position: absolute;
+    top: -50px;
+    right: -40px;
+    color: #fff;
+    display: block;
+    font-size: 17px;
+    font-weight: bold;
+    padding: 5px 7px;
+    background: #333;
+    border-radius: 0 0 5px 5px;
+}
+.levelBar .levelBar-bar span:before{
+    content: "";
+    position: absolute;
+    bottom: -14px;
+    left: 18px;
+    border: 7px solid transparent;
+    border-top: 7px solid #333;
+}
+
+@-webkit-keyframes animate-positive {
+    0% { width: 0%;}
+}
+@keyframes animate-positive {
+    0% { width:0%; }
+}

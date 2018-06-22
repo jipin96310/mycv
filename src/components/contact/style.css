@@ -13,6 +13,7 @@
 .up-panel{
     position: absolute;
     top:0;
+ 
 }
 @-webkit-keyframes slide-in {
 100% { left: 0 }

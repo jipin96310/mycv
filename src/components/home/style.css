@@ -17,6 +17,14 @@
             
         
 }
+.rainbow{
+    position: fixed;
+  left:0;
+ bottom:0;
+ height: 30vh;
+
+
+}
 
 .down-panel{
 position: absolute;
@@ -25,4 +33,11 @@ bottom: 0;
 .up-panel{
 position: absolute;
 top:0;
+}
+#cardItem{
+   
+
+   width: 100%;
+   height: 100%;
+    
 }

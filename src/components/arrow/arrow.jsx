@@ -7,81 +7,111 @@ import ReactDOM from 'react-dom';
 class Arrow extends React.Component {
 
 
-    constructor(){
+    constructor() {
 
         super()
-       
+
         this.state = {
 
-          hover:false
+            hover: false,
+            currentY: 20
         }
     }
 
     drawDown(isHover) {
-        
+
 
         var c = ReactDOM.findDOMNode(this.refs['downarrow']),
-        cxt = c.getContext("2d");
-        let colorStroke = "#969696"
-        colorStroke = isHover?  "#FFA500":"#969696";
+            cxt = c.getContext("2d");
+        let colorStroke = "#FFFAFA"
+        colorStroke = isHover ? "#FFA500" : "#FFFAFA";
 
-     
-            cxt.beginPath();
-            cxt.moveTo(0, 20);
-            cxt.lineTo(30, 45);
-            cxt.lineTo(60, 20);
-            cxt.lineWidth = 5;
-            cxt.strokeStyle = colorStroke;
-            cxt.lineCap = 'round';
-            cxt.lineJoin = "round";
-            cxt.stroke();
-            cxt.moveTo(0, 5);
-            cxt.lineTo(30, 30);
-            cxt.lineTo(60, 5);
-         
-            cxt.stroke();
-        
+
+        cxt.beginPath();
+        cxt.moveTo(0, 30);
+        cxt.lineTo(60, 55);
+        cxt.lineTo(120, 30);
+        cxt.lineWidth = 5;
+        cxt.strokeStyle = colorStroke;
+        cxt.lineCap = 'round';
+        cxt.lineJoin = "round";
+        cxt.stroke();
+        cxt.moveTo(0, 15);
+        cxt.lineTo(60, 40);
+        cxt.lineTo(120, 15);
+
+        cxt.stroke();
+
+
+        cxt.moveTo(0, 45);
+        cxt.lineTo(60, 70);
+        cxt.lineTo(120, 45);
+
+        cxt.stroke();
+
+
+
+
+
+
     }
-    
+
+
+
     componentDidMount() {
-    
-       this.drawDown(this.state.hover)
-       var that = this;
-       this.refs['downarrow'].onmouseenter = ()=>{
-          
-           that.onMouseEnter()
+
+       // this.drawDown(this.state.hover)
+        var that = this;
+        this.refs['downarrow'].onmouseenter = () => {
+
+            that.onMouseEnter()
         }
-        this.refs['downarrow'].onmouseleave = ()=>{
-          
+        this.refs['downarrow'].onmouseleave = () => {
+
             that.onMouseLeave()
-         }
-     
+        }
+
 
     }
-    onMouseEnter(){
-      
+    onMouseEnter() {
+
         this.setState({
             hover: true,
+            currentY: 0
         });
-        this.drawDown(this.state.hover);
+      //  this.drawDown(this.state.hover);
     }
-    onMouseLeave(){
-      
+    onMouseLeave() {
+
         this.setState({
             hover: false,
         });
-        this.drawDown(this.state.hover);
+      //  this.drawDown(this.state.hover);
     }
 
     render() {
-        
-      
+
+
         return (
+
+
+
+
             <div id="down" >
-            <canvas ref = "downarrow" width="60" height="50">
-            canvas not supported
-            </canvas>
+
+                <i ref="downarrow" width="120" height="80" id = "downcanvas" class = "fa  fa-arrow-circle-o-down  fa-3x" style = {{color:this.state.hover?"#FFA500":"#FFFAFA"}}>
+                    
+            </i>
+            <Motion style={{ height: spring(this.state.currentY) }}>
+                {({ height }) => <div style={Object.assign({}, { overflow: 'hidden', fontSize: '14',color:"#FFFAFA" }, { height })} >点击或滚轮翻页</div>
+                }
+            </Motion>
+
             </div>
+            
+            
+           
+         
         );
     }
 }

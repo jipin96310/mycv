@@ -16,7 +16,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '../dist'), // 输出的路径
     filename: 'app/[name]_[hash:8].js', // 打包后文件
-    
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -30,6 +30,9 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader', // 加载器
         exclude: /node_modules/,
+        options: {
+          presets: ['react', 'es2015', 'stage-0'],
+        }
       },
       {
         test: /\.css$/,

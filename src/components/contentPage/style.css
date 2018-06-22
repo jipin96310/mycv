@@ -4,7 +4,7 @@
         align-items: center;  
         width: 100%;
         background-color: #87CEFA;
-        height: 100vh; 
+        height: 0%; 
         position: absolute;
         z-index: 1000;
    
@@ -19,8 +19,7 @@
 .header-text {   position: relative; 
                  width: 30em;   
                  height: 20em;
-                
-            
+      
 }
 
 .down-panel{

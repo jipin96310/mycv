@@ -1,6 +1,6 @@
 import Server from './server';
 
-class API extends Server{
+class API extends Server {
   /**
    *  用途：上传图片
    *  @url https://elm.cangdu.org/v1/addimg/shop
@@ -8,139 +8,90 @@ class API extends Server{
    *  @method post
    *  @return {promise}
    */
-  async uploadImg(params = {}){
-    try{
-      let result = await this.axios('post', '//elm.cangdu.org/v1/addimg/shop', params); 
-      if(result && result.status === 1){
-        return result;
-      }else{
-        let err = {
-          tip: '上传图片失败',
-          response: result,
-          data: params,
-          url: '//elm.cangdu.org/v1/addimg/shop',
-        }
-        throw err;
-      }
-    }catch(err){
-      throw err;
-    }
-  }
+  async addNote(params = {
+    actionName:"addOne",
+    companyName:"/",
+    mainContent:"/",
+    
 
-  /**
-   *  用途：获取记录数据
-   *  @url https://api.cangdu.org/shopro/data/record
-   *  返回http_code为200表示成功
-   *  @method get
-   *  @return {promise}
-   */
-  async getRecord(params = {}){
-    try{
-      let result = await this.axios('get', `/shopro/data/record/${params.type}`); 
-      if(result && (result.data instanceof Object) && result.http_code === 200){
-        return result.data;
-      }else{
+  }) {
+    try {
+      let result = await this.axios('GET', '/testCV/CV', params);
+      if (result) {
+        return result || {};
+      }  else {
         let err = {
-          tip: '获取记录数据失败',
+          tip: '发送消息失败',
           response: result,
           data: params,
-          url: 'https://api.cangdu.org/shopro/data/record',
+          
         }
         throw err;
       }
-    }catch(err){
-      throw err;
-    }
-  }
-
-  /**
-   *  用途：获取商品数据
-   *  @url https://api.cangdu.org/shopro/data/products
-   *  返回http_code为200表示成功
-   *  @method get
-   *  @return {promise}
-   */
-  async getProduction(params = {}){
-    try{
-      let result = await this.axios('get', '/shopro/data/products', params); 
-      if(result && (result.data instanceof Object) && result.http_code === 200){
-        return result.data.data||[];
-      }else{
-        let err = {
-          tip: '获取商品数据失败',
-          response: result,
-          data: params,
-          url: 'https://api.cangdu.org/shopro/data/products',
-        }
-        throw err;
-      }
-    }catch(err){
-      throw err;
-    }
-  }
-
-  /**
-   *  用途：获取佣金数据
-   *  @url https://api.cangdu.org/shopro/data/balance
-   *  返回http_code为200表示成功
-   *  @method get
-   *  @return {promise}
-   */
-  async getBalance(params = {}){
-    try{
-      let result = await this.axios('get', '/shopro/data/balance', params); 
-      if(result && (result.data instanceof Object) && result.http_code === 200){
-        return result.data.data||{};
-      }else{
-        let err = {
-          tip: '获取佣金数据失败',
-          response: result,
-          data: params,
-          url: 'https://api.cangdu.org/shopro/data/balance',
-        }
-        throw err;
-      }
-    }catch(err){
+    } catch (err) {
       throw err;
     }
   }
 
 
+  
+  async getAllNotes(params = {
+    actionName:"fetchAll",
+    companyName:"",
+    mainContent:"",
+  }) {
+    try {
+      let result = await this.axios('GET', '/testCV/CV', params);
+   
 
-
-
-   /**
-   *  用途：获取足球比赛数据
-   *  @url https://api.cangdu.org/shopro/data/balance
-   *  返回http_code为200表示成功
-   *  @method get
-   *  @return {promise}
-   */
-  async getGames(params = { 
-    homeOdds: 2.1 //用户ID
-    , drawOdds: 3.3
-    , awayOdds: 3.1
-    , month: 3
-    ,oddsType:1}){
-    try{
-      let result = await this.axios('GET', '/testODDS/ODDS', params); 
-      console.log(result)
+      if (result) {
+        return result || {};
+      } else {
+        let err = {
+          tip: '获取消息失败',
+          response: result,
+          data: params,
       
-      if(result){
-        return result||{};
-      }else{
-        let err = {
-          tip: '获取足球比赛失败',
-          response: result,
-          data: params,
-          url: 'https://api.cangdu.org/shopro/data/balance',
         }
         throw err;
       }
-    }catch(err){
+    } catch (err) {
       throw err;
     }
   }
+
+  async contactMe(params = {
+    actionName:"contactMe",
+    name:"",
+    companyName:"",
+
+    contactWay:"",
+    job:"",
+    extra:""
+  }) {
+    try {
+      let result = await this.axios('GET', '/testCV/CV', params);
+   
+
+      if (result) {
+        return result || {};
+      } else {
+        let err = {
+          tip: '获取消息失败',
+          response: result,
+          data: params,
+      
+        }
+        throw err;
+      }
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  
+
+ 
 }
 
 
